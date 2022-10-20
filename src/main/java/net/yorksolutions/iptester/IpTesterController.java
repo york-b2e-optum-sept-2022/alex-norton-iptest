@@ -18,8 +18,8 @@ public class IpTesterController {
     }
 
     @GetMapping("/ip")
-    public HashMap generateIp() throws UnknownHostException {
-        { return this.ipTesterService.getRemoteAddress();}
+    public HashMap ip(HttpServletRequest request) {
+        return this.ipTesterService.ip(request);
     }
 
     @GetMapping("/host")
@@ -38,11 +38,20 @@ public class IpTesterController {
         {return this.ipTesterService.getDate();}
     }
 
-    @GetMapping("/getHeader")
-    public HashMap headers() {
-        {return (HashMap) this.ipTesterService.httpHeaders();}
+    @GetMapping("/cookies")
+    public HashMap cookies(HttpServletRequest request) {
+        return this.ipTesterService.cookies(request);
     }
 
+    @GetMapping("/path")
+    public HashMap path(HttpServletRequest request) {
+        return this.ipTesterService.path(request);
+    }
+
+    @GetMapping("/method")
+    public HashMap method(HttpServletRequest request) {
+        return this.ipTesterService.method(request);
+    }
 
 
 

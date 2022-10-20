@@ -3,11 +3,10 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
+import java.net.Proxy;
 import java.net.UnknownHostException;
 import java.time.LocalDateTime;
-import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.Map;
 
 
 @Service
@@ -16,12 +15,10 @@ public class IpTesterService {
     String ipAddress1;
 
 
-    public HashMap getRemoteAddress() throws UnknownHostException {
-        ipAddress1 = InetAddress.getLocalHost().getHostAddress();
-        HashMap ip = new HashMap();
-        ip.put("IP Address", this.ipAddress1);
-       return ip;
-
+    public HashMap ip(HttpServletRequest request) {
+        HashMap map = new HashMap();
+        map.put("ip", request.getRemoteAddr());
+        return map;
     }
     String hostName;
     public HashMap getHost() throws UnknownHostException {
@@ -47,13 +44,25 @@ public class IpTesterService {
         return dT;
     }
 
-    String headers;
-    public HashMap httpHeaders(){
-        headers = String.valueOf("hellooo");
-        HashMap head = new HashMap();
-        head.put("Headers:", this.headers);
-        return head;
+    public HashMap cookies(HttpServletRequest request) {
+        HashMap map = new HashMap();
+        map.put("cookies", request.getCookies());
+        return map;
+
     }
+
+    public HashMap path(HttpServletRequest request) {
+        HashMap map = new HashMap();
+        map.put("path", request.getPathInfo());
+        return map;
+    }
+
+    public HashMap method(HttpServletRequest request) {
+        HashMap map = new HashMap();
+        map.put("Method", request.getMethod());
+        return map;
+    }
+
     
 
 }
