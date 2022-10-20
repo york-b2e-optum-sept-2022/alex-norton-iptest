@@ -12,8 +12,6 @@ import java.util.HashMap;
 @Service
 public class IpTesterService {
 
-    String ipAddress1;
-
 
     public HashMap ip(HttpServletRequest request) {
         HashMap map = new HashMap();
