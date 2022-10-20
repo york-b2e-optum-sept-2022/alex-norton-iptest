@@ -1,9 +1,14 @@
 package net.yorksolutions.iptester;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.CriteriaBuilder;
+import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 
 @Service
@@ -26,15 +31,12 @@ public class IpTesterService {
         return this.locals;
     }
 
-    String hosts;
-    protected String totalHostNames() throws UnknownHostException {
-        hosts = InetAddress.getLocalHost().getCanonicalHostName();
-        return this.locals;
+
+    String dateTime;
+    protected String getDate() {
+        dateTime = String.valueOf(LocalDateTime.now());
+        return this.dateTime;
     }
-
-
-
-
 
 
 }

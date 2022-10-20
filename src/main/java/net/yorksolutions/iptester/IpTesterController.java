@@ -9,7 +9,7 @@ import java.net.UnknownHostException;
 @RestController
 public class IpTesterController {
 
-    private IpTesterService ipTesterService;
+    private final IpTesterService ipTesterService;
 
     public IpTesterController(IpTesterService ipTesterService) {
         this.ipTesterService = ipTesterService;
@@ -30,10 +30,13 @@ public class IpTesterController {
         return this.ipTesterService.anyLocal();
     }
 
-    @GetMapping("/totals")
-    public String totals() throws UnknownHostException {
-        return this.ipTesterService.totalHostNames();
+
+    @GetMapping("/date")
+    public String date() {
+        return this.ipTesterService.getDate();
     }
+
+
 
 
 }
