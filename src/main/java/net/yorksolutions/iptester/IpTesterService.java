@@ -1,16 +1,21 @@
 package net.yorksolutions.iptester;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.time.LocalDateTime;
+import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Map;
 
 
 @Service
 public class IpTesterService {
 
     String ipAddress1;
+
+
     public HashMap getRemoteAddress() throws UnknownHostException {
         ipAddress1 = InetAddress.getLocalHost().getHostAddress();
         HashMap ip = new HashMap();
@@ -49,6 +54,7 @@ public class IpTesterService {
         head.put("Headers:", this.headers);
         return head;
     }
+    
 
 }
 

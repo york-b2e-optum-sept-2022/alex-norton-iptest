@@ -40,8 +40,9 @@ public class IpTesterController {
 
     @GetMapping("/getHeader")
     public HashMap headers() {
-        {return this.ipTesterService.httpHeaders();}
+        {return (HashMap) this.ipTesterService.httpHeaders();}
     }
+
 
 
 
