@@ -53,6 +53,11 @@ public class IpTesterController {
         return this.ipTesterService.method(request);
     }
 
+//    @GetMapping("/md5/*")
+//    public HashMap md() {
+//
+//    }
+
 
 
 
